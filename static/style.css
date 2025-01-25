@@ -1,8 +1,8 @@
 :root {
-    --bg: #1e1e1e;
-    --outline: #3c3c3c;
+    --bg: #271c2c;
+    --outline: #3c2c40;
     --text: white;
-    --accent: #f67bbf;
+    --accent: #f67bf4;
 
     --font-size: 10pt;
 }

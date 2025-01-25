@@ -12,10 +12,8 @@ def renderChat():
     for message in rawHistory:
         splitMessage = message.split("[@spl]")
         formattedChat = formattedChat + f"<p><p class='nameTag'>{splitMessage[0]}: </p>{splitMessage[1]}</p>\n"
-        print(splitMessage)
     formattedChat.removesuffix("\n")
     returnFile = template.replace("$chat", formattedChat)
-    print(formattedChat)
     return returnFile
 
 def addMessage(message, name):
