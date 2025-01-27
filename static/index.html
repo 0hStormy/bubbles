@@ -9,11 +9,16 @@
 <body>
     <div class="root">
         <div class="chatBar">
-            <form method="post">
+            <iframe src="https://searchemoji.app/" frameborder="0"></iframe>
+            <div class="chat">
                 $chat
-                <input action="submit" name="username" type="text">
-                <input action="submit" name="message" type="text">
-                <button action=""><img src="static/refresh.svg" alt=""></button>
+            </div>
+            <form method="post">
+                <div class="bar">
+                    <input action="submit" class="nameBar" value="$name" name="username" type="text">
+                    <input action="submit" class="messageBar" name="message" type="text">
+                    <button action=""><img src="static/refresh.png" alt="Refresh Chat"></button>
+                </div>
             </form>
         </div>
     </div>
