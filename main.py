@@ -1,4 +1,5 @@
 from flask import Flask, request
+import time
 
 def readFile(file):
     with open(file, "r") as f:
@@ -12,7 +13,7 @@ def renderChat(name=""):
     formattedChat = ""
     for message in rawHistory:
         splitMessage = message.split("[@spl]")
-        formattedChat = formattedChat + f"<div><p><a class='nameTag'>{splitMessage[0]}: </a>{splitMessage[1]}</p></div>\n"
+        formattedChat = formattedChat + f"<div><p><p class='nameTag'>{splitMessage[0]} | {splitMessage[1]}</p>{splitMessage[2]}</p></div>\n"
     formattedChat.removesuffix("\n")
     returnFile = template.replace("$chat", formattedChat)
     returnFile = returnFile.replace("$name", name)
@@ -20,7 +21,8 @@ def renderChat(name=""):
 
 def addMessage(message, name):
     with open("internal/chathistory", "a") as f:
-        f.write(f"{name}[@spl]{message}\n")
+        postTime = time.strftime('%l:%M%p %Z, %b %d, %Y')
+        f.write(f"{name}[@spl]{postTime}[@spl]{message}\n")
 
 app = Flask(__name__)
 
